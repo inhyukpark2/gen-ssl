@@ -1,6 +1,6 @@
 ## Generative Self-Supervised Learning for Medical Image Classification
 
-> Generative Self-Supervised Learning for Medical Image Classification<br/>
+> <b>Generative Self-Supervised Learning for Medical Image Classification</b><br/>
 >  Inhyuk Park, Sungeun Kim, Jongbin Ryu.<br/> 
 > (Asian Conference on Computer Vision (ACCV), 2024 ), <br/>
 
