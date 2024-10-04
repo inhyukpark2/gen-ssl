@@ -4,7 +4,7 @@
 >  Inhyuk Park, Sungeun Kim, Jongbin Ryu.<br/> 
 > (Asian Conference on Computer Vision <b>(ACCV)</b>, 2024 ), <br/>
 
-![model overview](GenSSL.png)
+<img src="GenSSL.png" alt="model overview" width="80%">
 
 
 ## How to cite
