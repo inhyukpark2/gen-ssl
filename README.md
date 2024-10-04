@@ -16,4 +16,8 @@
     url = {},
     year = {2024},
 }
-```
+
+## Acknowledgement
+https://github.com/lambert-x/medical_mae
+
+Our code is built upon [lambert-x/medical_mae](https://github.com/lambert-x/medical_mae).
