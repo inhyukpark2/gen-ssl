@@ -20,4 +20,4 @@
 ## Acknowledgement
 https://github.com/lambert-x/medical_mae
 
-Our code is built upon [lambert-x/medical_mae](https://github.com/lambert-x/medical_mae).
+We referenced the implementation of [MED-MAE](https://github.com/lambert-x/medical_mae)
