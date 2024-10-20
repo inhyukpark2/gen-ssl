@@ -6,5 +6,8 @@ Inhyuk Park, Sungeun Kim, Jongbin Ryu.<br/>
 
 <img src="GenSSL.png" alt="model overview" width="100%">
 
+## Generative Chest X-ray Image 
+[generative_chestxray](https://github.com/Warvito/generative_chestxray)
+
 ## Acknowledgement
 We referenced the implementation of [medical_mae](https://github.com/lambert-x/medical_mae)
