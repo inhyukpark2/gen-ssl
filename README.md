@@ -6,10 +6,10 @@ Inhyuk Park, Sungeun Kim, Jongbin Ryu.<br/>
 
 <img src="GenSSL.png" alt="model overview" width="100%">
 
-## Generative Chest X-ray Image 
+## Generative Chest X-ray Images 
 After training the generative model, create a chest x-ray image. [generative_chestxray](https://github.com/Warvito/generative_chestxray)
 
-## Pre-training on generated chest x-rays
+## Pre-training on generated Chest X-ray Images
 
 The pre-training instruction is in [PRETRAIN.md](https://github.com/inhyukpark2/gen-ssl/blob/main/PRETRAIN.md).
 
