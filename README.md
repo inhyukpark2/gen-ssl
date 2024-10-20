@@ -9,5 +9,13 @@ Inhyuk Park, Sungeun Kim, Jongbin Ryu.<br/>
 ## Generative Chest X-ray Image 
 After training the generative model, create a chest x-ray image. [generative_chestxray](https://github.com/Warvito/generative_chestxray)
 
+## Pre-training on ImageNet or Chest X-rays
+
+The pre-training instruction is in [PRETRAIN.md](https://github.com/inhyukpark2/gen-ssl/blob/main/PRETRAIN.md).
+
+## Fine-tuning with pre-trained checkpoints
+
+The fine-tuning instruction is in [FINETUNE.md](https://github.com/inhyukpark2/gen-ssl/blob/main/FINETUNE.md).
+
 ## Acknowledgement
 We referenced the implementation of [medical_mae](https://github.com/lambert-x/medical_mae)
