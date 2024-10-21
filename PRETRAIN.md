@@ -5,7 +5,7 @@
 ```
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 OMP_NUM_THREADS=1 \
 python -m torch.distributed.launch --nproc_per_node=8 \
- --use_env main_pretrain_multi_datasets_xray.py \
+ --use_env main_pretrain_generated_datasets_xray.py \
  --output_dir ${SAVE_DIR} \
  --log_dir ${SAVE_DIR} \
  --batch_size 256 \
@@ -26,7 +26,7 @@ python -m torch.distributed.launch --nproc_per_node=8 \
 ```
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 OMP_NUM_THREADS=1 \
 python -m torch.distributed.launch --nproc_per_node=8 \
- --use_env main_pretrain_multi_datasets_xray.py \
+ --use_env main_pretrain_generated_datasets_xray.py \
  --output_dir ${SAVE_DIR} \
  --log_dir ${SAVE_DIR} \
  --batch_size 256 \
