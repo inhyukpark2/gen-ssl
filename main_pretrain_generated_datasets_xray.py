@@ -96,6 +96,7 @@ def get_args_parser():
                         help='Pin CPU memory in DataLoader for more efficient (sometimes) transfer to GPU.')
     parser.add_argument('--no_pin_mem', action='store_false', dest='pin_mem')
     parser.set_defaults(pin_mem=True)
+    parser.add_argument('--adain', default=False, required = True, type=bool, help='adain')
 
     # distributed training parameters
     parser.add_argument('--world_size', default=1, type=int,
