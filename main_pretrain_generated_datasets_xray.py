@@ -33,7 +33,6 @@ from util.misc import NativeScalerWithGradNormCount as NativeScaler
 import models_mae
 
 from engine_pretrain import train_one_epoch
-from util.dataloader_med import CheXpert, ChestX_ray14, MIMIC
 import cv2
 from util.custom_transforms import custom_train_transform
 from util.sampler import RASampler
