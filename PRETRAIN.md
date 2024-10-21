@@ -16,6 +16,7 @@ python -m torch.distributed.launch --nproc_per_node=8 \
  --blr 1.5e-4 --weight_decay 0.05 \
  --num_workers 8 \
  --input_size 224 \
+ --adain True
  --mask_strategy 'random' \
  --random_resize_range 0.5 1.0 \
  --datasets_names chexpert chestxray_nih
@@ -37,6 +38,7 @@ python -m torch.distributed.launch --nproc_per_node=8 \
  --blr 1.5e-4 --weight_decay 0.05 \
  --num_workers 8 \
  --input_size 224 \
+ --adain True
  --mask_strategy 'random' \
  --random_resize_range 0.5 1.0 \
  --datasets_names chexpert chestxray_nih mimic_cxr
