@@ -112,7 +112,6 @@ def get_args_parser():
     parser.add_argument('--mask_strategy', default='random', type=str)
 
     parser.add_argument('--repeated-aug', action='store_true', default=False)
-    parser.add_argument('--datasets_names', type=str, nargs='+', default=[])
 
     return parser
 
@@ -134,75 +133,15 @@ def main(args):
 
     # simple augmentation
 
-    # if args.resize_input == -1:
-    #     transform_train = transforms.Compose([
-    #             transforms.RandomResizedCrop(args.input_size, scale=(0.2, 1.0), interpolation=3),  # 3 is bicubic
-    #             transforms.RandomHorizontalFlip(),
-    #             transforms.ToTensor(),
-    #             transforms.Normalize([0.5056, 0.5056, 0.5056], [0.252, 0.252, 0.252])])
-    #
-    # else:
-    #     scaled_ratio_min = 0.2 * args.resize_input / 1024
-    #     scaled_ratio_max = 1.0 * args.resize_input / 1024
-    concat_datasets = []
-    mean_dict = {'chexpert': [0.485, 0.456, 0.406],
-                 'chestxray_nih': [0.5056, 0.5056, 0.5056],
-                 'mimic_cxr': [0.485, 0.456, 0.406]
-                 }
-    std_dict = {'chexpert': [0.229, 0.224, 0.225],
-                'chestxray_nih': [0.252, 0.252, 0.252],
-                'mimic_cxr': [0.229, 0.224, 0.225]
-                }
-    print(args.datasets_names)
-    for dataset_name in args.datasets_names:
-        dataset_mean = mean_dict[dataset_name]
-        dataset_std = std_dict[dataset_name]
-        if args.random_resize_range:
-            if args.mask_strategy in ['heatmap_weighted', 'heatmap_inverse_weighted']:
-                resize_ratio_min, resize_ratio_max = args.random_resize_range
-                print(resize_ratio_min, resize_ratio_max)
-                transform_train = custom_train_transform(size=args.input_size,
-                                                         scale=(resize_ratio_min, resize_ratio_max),
-                                                         mean=dataset_mean, std=dataset_std)
-            else:
-                resize_ratio_min, resize_ratio_max = args.random_resize_range
-                print(resize_ratio_min, resize_ratio_max)
-                transform_train = transforms.Compose([
-                    transforms.RandomResizedCrop(args.input_size, scale=(resize_ratio_min, resize_ratio_max),
-                                                 interpolation=3),  # 3 is bicubic
-                    transforms.RandomHorizontalFlip(),
-                    transforms.ToTensor(),
-                    transforms.Normalize(dataset_mean, dataset_std)])
-
-        else:
-            print('Using Directly-Resize Mode. (no RandomResizedCrop)')
-            transform_train = transforms.Compose([
-                transforms.Resize((args.input_size, args.input_size)),
-                transforms.RandomHorizontalFlip(),
-                transforms.ToTensor(),
-                transforms.Normalize(dataset_mean, dataset_std)])
-
-        if args.mask_strategy in ['heatmap_weighted', 'heatmap_inverse_weighted']:
-            heatmap_path = 'nih_bbox_heatmap.png'
-        else:
-            heatmap_path = None
-
-        if dataset_name == 'chexpert':
-            dataset = CheXpert(csv_path="data/CheXpert-v1.0-small/train.csv", image_root_path='data/CheXpert-v1.0-small/', use_upsampling=False,
-                               use_frontal=True, mode='train', class_index=-1, transform=transform_train,
-                               heatmap_path=heatmap_path, pretraining=True)
-        elif dataset_name == 'chestxray_nih':
-            dataset = ChestX_ray14('data/nih_chestxray', "data_splits/chestxray/train_official.txt", augment=transform_train, num_class=14,
-                                   heatmap_path=heatmap_path, pretraining=True)
-        elif dataset_name == 'mimic_cxr':
-            dataset = MIMIC(path='data/mimic_cxr', version="chexpert", split="train", transform=transform_train, views=["AP", "PA"],
-                            unique_patients=False, pretraining=True)
-        else:
-            raise NotImplementedError
-        print(dataset)
-        concat_datasets.append(dataset)
-    # dataset_train = datasets.ImageFolder(os.path.join(args.data_path, 'train'), transform=transform_train)
-    dataset_train = torch.utils.data.ConcatDataset(concat_datasets)
+    
+    transform_train = transforms.Compose([
+        transforms.RandomResizedCrop(args.input_size, scale=(0.2, 1.0), interpolation=3),  # 3 is bicubic
+        transforms.RandomHorizontalFlip(),
+        transforms.ToTensor(),
+        transforms.Normalize([0.5056, 0.5056, 0.5056], [0.252, 0.252, 0.252])])
+    
+    dataset_train = datasets.ImageFolder(os.path.join(args.data_path, 'train'), transform=transform_train)
+   
 
     if True:  # args.distributed:
         num_tasks = misc.get_world_size()
