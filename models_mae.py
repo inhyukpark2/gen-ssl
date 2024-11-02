@@ -81,8 +81,9 @@ class MaskedAutoencoderViT(nn.Module):
         self.mean = [0.485, 0.456, 0.406]
         self.std = [0.229, 0.224, 0.225]
 
-        self.style_mean = torch.tensor([[[[0.5062]], [[0.5062]], [[0.5062]]]])
-        self.style_std = torch.tensor([[[[0.2732]], [[0.2732]], [[0.2732]]]])
+        # Calculate the mean and standard deviation of the generated dataset
+        self.style_mean = torch.tensor[,,]
+        self.style_std = torch.tensor[,,]
 
     # def extract_patch_weights(self, heatmap, img_size, patch_size, weight_min=0.1, weight_max=1.0,
     #                           heatmap_binary_threshold=None):
