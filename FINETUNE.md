@@ -11,7 +11,7 @@ OMP_NUM_THREADS=1 python -m torch.distributed.launch \
     --output_dir ${SAVE_DIR} \
     --log_dir ${SAVE_DIR} \
     --batch_size 128 \
-    --finetune "vit-s_CXR_0.3M_mae.pth" \
+    --finetune "your_model.pth" \
     --epochs 75 \
     --blr 2.5e-4 --layer_decay 0.55 --weight_decay 0.05 \
     --model vit_small_patch16 \
