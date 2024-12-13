@@ -20,5 +20,5 @@ The fine-tuning instruction is in [FINETUNE.md](https://github.com/inhyukpark2/g
 ## Acknowledgement
 We referenced the implementation of [medical_mae](https://github.com/lambert-x/medical_mae)
 
-## future works
-We plan to conduct further studies to develop a more powerful diffusion model, generate a larger number of high-quality images, and explore more effective self-supervised learning methods.
+## Future works
+We plan to conduct further studies to develop a more powerful diffusion model, generate a larger number of high-quality images, and explore more effective self-supervised learning methods.👨🏻‍💻
